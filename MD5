@@ -1,4 +1,4 @@
-ad3704470a1f16d5dd014f7ec4e4b2df *DESCRIPTION
+e2ded98a16b07c79aa728c98c4e4deaa *DESCRIPTION
 c266085e68d129dbbb01f1cca2ee739b *NAMESPACE
 c64cfcd8057038207802a1964ab182f5 *R/bundScript.R
 36fcfc0e84e6d3ea5def929d0ae41e82 *R/causalForest.R
@@ -127,7 +127,7 @@ e7ca705821f669d9dae5e41b17ec527e *src/policysplit.c
 4c44924eaee5af3e173be90439683867 *src/rpmatrix.c
 74d8d007aea0b1c4962babb40ebf9000 *src/surrogate.c
 826de26feaabb0cbf65252a0bacfdd0c *src/tot.c
-c04cd107cc145828261507da6c25fb43 *src/totD.c
+728f0e7e19f73479a4bb7819dc940726 *src/totD.c
 3227c14dbf75268532a6d862549e79d9 *src/totrundown.c
 f3b23d80a8671a567c7262204cc5923c *src/tstats.c
 8e994767893e2000970360d3b89ca7a7 *src/tstatsD.c

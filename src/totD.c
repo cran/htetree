@@ -28,7 +28,7 @@ static double *wtsums_bucket;
 
 int
 totDinit(int n, double *y[], int maxcat, char **error,
-        int *size, int who, double *wt, double *treatment, 
+        int *size, int who, double *wt, double *treatment,
         int bucketnum, int bucketMax, double *train_to_est_ratio)
 {
     if (who == 1 && maxcat > 0) {
@@ -46,29 +46,29 @@ totDinit(int n, double *y[], int maxcat, char **error,
     }
     *size = 1;
     *train_to_est_ratio = n * 1.0 / ct.NumHonest;
-    //if (bucketnum == 0) 
+    //if (bucketnum == 0)
       Rprintf("inside totDinit!\n");
     return 0;
 }
 
 
 void
-totDss(int n, double *y[], double *value, double *con_mean, double *tr_mean, double *risk, 
-       double *wt, double *treatment, double max_y, double propensity) 
+totDss(int n, double *y[], double *value, double *con_mean, double *tr_mean, double *risk,
+       double *wt, double *treatment, double max_y, double propensity)
 {
     int i;
     double temp = 0., twt = 0.;
     double mean, ss;
     double ystar;
-    double temp0, temp1; 
+    double temp0, temp1;
     double trs, cons;
-    
+
     temp0 = 0.;
     temp1 = 0.;
     trs = 0.;
     cons = 0.;
 
-    
+
     for (i = 0; i < n; i++) {
         ystar = *y[i] * (treatment[i] - propensity) / (propensity * (1 - propensity));
         temp += ystar * wt[i];
@@ -82,14 +82,14 @@ totDss(int n, double *y[], double *value, double *con_mean, double *tr_mean, dou
         }
     }
     mean = temp / twt;
-    
+
     ss = 0.;
     for (i = 0; i < n; i++) {
         ystar = *y[i] * (treatment[i] - propensity) / (propensity * (1 - propensity));
         temp = ystar - mean;
         ss += temp * temp * wt[i];
     }
-    
+
     *con_mean  = temp0 / cons;
     *tr_mean = temp1 / trs;
     *value = temp1 /trs - temp0 / cons;
@@ -97,8 +97,8 @@ totDss(int n, double *y[], double *value, double *con_mean, double *tr_mean, dou
 }
 
 
-void totD(int n, double *y[], double *x, int nclass, int edge, double *improve, 
-         double *split, int *csplit, double myrisk, double *wt, double *treatment, 
+void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
+         double *split, int *csplit, double myrisk, double *wt, double *treatment,
          double propensity, int minsize, int bucketnum, int bucketMax)
 {
     int i, j;
@@ -117,15 +117,15 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
     int bucketTmp;
     double trsum = 0.;
     int Numbuckets;
-    
+
     double *cum_wt, *tmp_wt, *fake_x;
     double tr_wt_sum, con_wt_sum, con_cum_wt, tr_cum_wt;
-    
+
     // for overlap:
     double tr_min, tr_max, con_min, con_max;
     double left_bd, right_bd;
     double cut_point;
-    
+
     right_wt = 0.;
     right_n = n;
     right_tr = 0.;
@@ -139,19 +139,19 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
         trsum += treatment[i];
     }
     grandmean = right_sum / right_wt;
-    
-    
+
+
     if(nclass == 0) {
       Rprintf("totd: inside cont. split\n");
         cum_wt = (double *) ALLOC(n, sizeof(double));
         tmp_wt = (double *) ALLOC(n, sizeof(double));
         fake_x = (double *) ALLOC(n, sizeof(double));
-        
+
         tr_wt_sum = 0.;
         con_wt_sum = 0.;
         con_cum_wt = 0.;
         tr_cum_wt = 0.;
-        
+
         // find the abs max and min of x:
         double max_abs_tmp = fabs(x[0]);
         for (i = 0; i < n; i++) {
@@ -159,13 +159,13 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
                 max_abs_tmp = fabs(x[i]);
             }
         }
-        
+
         // set tr_min, con_min, tr_max, con_max to a large/small value
         tr_min = max_abs_tmp;
         tr_max = -max_abs_tmp;
         con_min = max_abs_tmp;
         con_max = -max_abs_tmp;
-        
+
         for (i = 0; i < n; i++) {
             if (treatment[i] == 0) {
                 con_wt_sum += wt[i];
@@ -188,28 +188,28 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
             tmp_wt[i] = 0.;
             fake_x[i] = 0.;
         }
-        
+
         // compute the left bound and right bound
         left_bd = max(tr_min, con_min);
         right_bd = min(tr_max, con_max);
-        
+
         int test1 = round(trsum / (double)bucketnum);
         int test2 = round(((double)n - trsum) / (double)bucketnum);
         bucketTmp = min(test1, test2);
         Numbuckets = max(minsize, min(bucketTmp, bucketMax));
-        
-        
+
+
         n_bucket = (int *) ALLOC(Numbuckets + 1,  sizeof(int));
         wts_bucket = (double *) ALLOC(Numbuckets + 1, sizeof(double));
         trs_bucket = (double *) ALLOC(Numbuckets + 1, sizeof(double));
         tr_end_bucket = (double *) ALLOC(Numbuckets + 1, sizeof(double));
         con_end_bucket = (double *) ALLOC (Numbuckets + 1, sizeof(double));
         wtsums_bucket = (double *) ALLOC (Numbuckets + 1, sizeof(double));
-        
-        
+
+
         for (i = 0; i < n; i++) {
             if (treatment[i] == 0) {
-                tmp_wt[i] = wt[i] / con_wt_sum;     
+                tmp_wt[i] = wt[i] / con_wt_sum;
                 con_cum_wt += tmp_wt[i];
                 cum_wt[i] = con_cum_wt;
                 fake_x[i] = (int)floor(Numbuckets * cum_wt[i]);
@@ -220,14 +220,14 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
                 fake_x[i] = (int)floor(Numbuckets * cum_wt[i]);
             }
         }
-        
+
         for (j = 0; j < Numbuckets; j++) {
             n_bucket[j] = 0;
             wts_bucket[j] = 0.;
             trs_bucket[j] = 0.;
             wtsums_bucket[j]  = 0.;
         }
-        
+
         for (i = 0; i < n; i++) {
             j = fake_x[i];
             n_bucket[j]++;
@@ -241,39 +241,39 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
                 con_end_bucket[j] = x[i];
             }
         }
-        
+
         left_sum = 0;
         left_wt = 0;
         left_n = 0;
         left_tr = 0.;
         best = 0;
-        
+
         for (j = 0; j < Numbuckets; j++) {
-            
+
             left_n += n_bucket[j];
             right_n -= n_bucket[j];
             left_wt += wts_bucket[j];
             right_wt -= wts_bucket[j];
-            left_tr += trs_bucket[j]; 
+            left_tr += trs_bucket[j];
             right_tr -= trs_bucket[j];
-            
+
             left_sum += wtsums_bucket[j];
             right_sum -= wtsums_bucket[j];
-            
+
             cut_point = (tr_end_bucket[j] + con_end_bucket[j]) / 2.0;
-            
+
             if (left_n >= edge && right_n >= edge &&
                 (int) left_tr >= min_node_size &&
                 (int) left_wt - (int) left_tr >= min_node_size &&
                 (int) right_tr >= min_node_size &&
                 (int) right_wt - (int) right_tr >= min_node_size &&
                 cut_point < right_bd && cut_point > left_bd) {
-                
+
                 left_mean = left_sum / left_wt;
                 right_mean = right_sum / right_wt;
-                temp = left_wt * (grandmean - left_mean) * (grandmean - left_mean) + 
-                       right_wt * (grandmean - right_mean) * (grandmean - right_mean);  
-                
+                temp = left_wt * (grandmean - left_mean) * (grandmean - left_mean) +
+                       right_wt * (grandmean - right_mean) * (grandmean - right_mean);
+
                 if (temp > best) {
                     best = temp;
                     where = j;
@@ -282,10 +282,10 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
                     else
                         direction = RIGHT;
                 }
-                
+
             }
         }
-        
+
         *improve = best / myrisk;
         if (best > 0) {
             csplit[0] = direction;
@@ -297,7 +297,7 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
          */
         Rprintf("totd: inside factor split!\n");
       Rprintf("nclass:%d\n",nclass);
-      
+
         for (i = 0; i < nclass; i++) {
             countn[i] = 0;
             wts[i] = 0;
@@ -308,7 +308,7 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
             wtsqrsums[i] = 0;
             wttrsqrsums[i] = 0;
         }
-        
+
         /* rank the classes by treatment effect */
         for (i = 0; i < n; i++) {
             j = (int) x[i] - 1;
@@ -321,7 +321,7 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
             wtsqrsums[j] += (*y[i]) * (*y[i]) * wt[i];
             wttrsqrsums[j] += (*y[i]) * (*y[i]) * wt[i] * treatment[i];
         }
-        
+
         for (i = 0; i < nclass; i++) {
             if (countn[i] > 0) {
                 tsplit[i] = RIGHT;
@@ -330,8 +330,8 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
                 tsplit[i] = 0;
         }
         graycode_init2(nclass, countn, treatment_effect);
-  
-        
+
+
         /*
          * Now find the split that we want
          */
@@ -361,7 +361,7 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
                     right_sum * right_sum / right_wt;
               Rprintf("temp=%f\n",temp);
               Rprintf("best=%f\n",best);
-              Rprintf("left_sum_fin=%f,left_wt=%f,left_tr=%f,right_sum_fin=%f,right_wt=%f,right_tr=%f,min_node_size=%d\n",left_sum,left_wt,left_tr,right_sum,right_wt,right_tr,min_node_size);
+              // Rprintf("left_sum_fin=%f,left_wt=%f,left_tr=%f,right_sum_fin=%f,right_wt=%f,right_tr=%f,min_node_size=%d\n",left_sum,left_wt,left_tr,right_sum,right_wt,right_tr,min_node_size);
                 if (temp > best) {
                     best = temp;
                   Rprintf("tot factor best:%f\n",best);
@@ -373,7 +373,7 @@ void totD(int n, double *y[], double *x, int nclass, int edge, double *improve,
                 }
             }
         }
-        
+
         *improve = best / myrisk;  /* improvement */
     }
 }
@@ -383,7 +383,7 @@ double
     {
         double ystar;
         double temp;
-        
+
         ystar = y[0] * (treatment - propensity) / (propensity * (1 - propensity));
         temp = ystar - *yhat;
         return temp * temp * wt;
