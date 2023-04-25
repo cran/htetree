@@ -1,4 +1,4 @@
-e2ded98a16b07c79aa728c98c4e4deaa *DESCRIPTION
+a69a154c1eff078cc55ec357ae41d2eb *DESCRIPTION
 c266085e68d129dbbb01f1cca2ee739b *NAMESPACE
 c64cfcd8057038207802a1964ab182f5 *R/bundScript.R
 36fcfc0e84e6d3ea5def929d0ae41e82 *R/causalForest.R
@@ -33,7 +33,6 @@ fc9e1b3476945f7428c2d7b4d99b70e0 *R/hte_causalTree.R
 e7a5c2610762829bf98250baa44b2574 *R/model.frame.causalTree.R
 66007c1e33267f0210a6b836522c7387 *R/na.causalTree.R
 6c9a6af628003bd2d67bc42660d43767 *R/plotOutcomes.R
-49ea243dd61c01a1c57f3172bf0b2104 *R/propensityForest.R
 9ce02ade0150fb6838849e80ea573cb0 *R/runDynamic.R
 d0a9848c952be60d75f806ba9dca6d66 *R/saveBCSS.R
 b0fdfa9fa64fd7c18763679fe2c20551 *R/saveFiles.R
@@ -73,7 +72,6 @@ b01a1e7b78f6cc11b65ccfa0d233c905 *man/makeplots.Rd
 95012015d71f2763cbd77ef909ee6062 *man/model.frame.causalTree.Rd
 8001a1a8ed2b37f30fb5268876b2a9e0 *man/na.causalTree.Rd
 1b4232eac2ff481e051a497aa88246e3 *man/plotOutcomes.Rd
-46a59b016fb35d90d87b3b8a1ed7cb66 *man/propensityForest.Rd
 8cbd6c0605330ec347db3445272e8b76 *man/runDynamic.Rd
 0c89643995c0e59167cd09ad77cadd46 *man/saveBCSS.Rd
 08c3c034a2ceeff9768d432b8044c78b *man/saveFiles.Rd
