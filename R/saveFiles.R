@@ -141,12 +141,12 @@ saveFiles <- function(model, data, outcomevariable, treatment_indicator, propens
 
   # Save bundle.js
   if (nchar(propensity_score) != 0){
-    p <- system.file("shiny_ipw", "www", "bundle.js", package = "CTextend")
+    p <- system.file("shiny_ipw", "www", "bundle.js", package = "htetree")
     fileConn <- file(paste(filePath, "/shinyapp/www/bundle.js", sep=""))
     writeLines(readLines(p), fileConn)
     close(fileConn)
   } else{
-    p <- system.file("shiny", "www", "bundle.js", package = "CTextend")
+    p <- system.file("shiny", "www", "bundle.js", package = "htetree")
     fileConn <- file(paste(filePath, "/shinyapp/www/bundle.js", sep=""))
     writeLines(readLines(p), fileConn)
     close(fileConn)

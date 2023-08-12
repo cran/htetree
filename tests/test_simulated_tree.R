@@ -25,11 +25,11 @@ hte_causalTree(outcomevariable="outcome",
                                "outcome"=c(1, 2, 2, 1, 4, 4)),
                treatment_indicator = "treatment",
                ps_indicator = "prop_score", covariates = "confounder")
-causalTree(y~ x1 + x2 + x3 + x4, data = simulation.1,
-    treatment = simulation.1$treatment,
-    split.Rule = "CT", cv.option = "CT", split.Honest = TRUE, cv.Honest = TRUE,
-    split.Bucket = F, xval = 5,
-    cp = 0, minsize = 20, propensity = 0.5)
+# causalTree(y~ x1 + x2 + x3 + x4, data = simulation.1,
+#     treatment = simulation.1$treatment,
+#     split.Rule = "CT", cv.option = "CT", split.Honest = TRUE, cv.Honest = TRUE,
+#     split.Bucket = F, xval = 5,
+#     cp = 0, minsize = 20, propensity = 0.5)
 data("simulation.1")
 # estimate the propensity score
 fit <- glm(treatment~x1+x2+x3+x4+x5+x6+x7+x8+x9+x10,
@@ -70,13 +70,13 @@ fit_noplot <- htetree::hte_ipw(outcomevariable = 'y',
 #               outcomevariable = 'y',
 #               propensity_score = "ps_score")
 
-
-# hte_plot(model = xxx,data = simulation.1,
+# library(htetree)
+# hte_plot(model = fit_drawplot,data = simulation.1,
 #          treatment_indicator = "treatment",
 #          outcomevariable = 'y',
 #          propensity_score = "ps_score")
-
-# hte_plot_line(model = xxx,data = simulation.1,
+#
+# hte_plot_line(model = fit_drawplot,data = simulation.1,
 #               treatment_indicator = "treatment",
 #               outcomevariable = 'y',
 #               propensity_score = "ps_score")
@@ -94,3 +94,13 @@ fit_noplot <- htetree::hte_ipw(outcomevariable = 'y',
 #                              covariates=covs,
 #                              con.num=4)
 
+## Dynamic visualization for IPW model (using Shiny)
+# THIS IS NOT SHOWING UP (shows a blank page)
+# The runDynamic function runs the visualization without saving any of the files
+# runDynamic(fit_drawplot, simulation.1,
+#            outcomevariable = "y", treatment_indicator = "treatment",
+#            propensity_score="ps_score")
+
+# The files for runDynamic are saved in the temporary directory
+# The files can be cleared manually using the clearTemp() function, or will automatically be cleared when you close R
+# clearTemp()

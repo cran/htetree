@@ -1,4 +1,4 @@
-a69a154c1eff078cc55ec357ae41d2eb *DESCRIPTION
+1a66a42c2ec2378f5826dc906b31723e *DESCRIPTION
 c266085e68d129dbbb01f1cca2ee739b *NAMESPACE
 c64cfcd8057038207802a1964ab182f5 *R/bundScript.R
 36fcfc0e84e6d3ea5def929d0ae41e82 *R/causalForest.R
@@ -25,7 +25,7 @@ fc9e1b3476945f7428c2d7b4d99b70e0 *R/hte_causalTree.R
 5a9e9e27f2f7265c8dd51f3823c3c9d3 *R/hte_forest.R
 11ace93785e5148ea89cf3b9e595a21f *R/hte_ipw.R
 70cbef1991c36789661d6745b31632f4 *R/hte_match.R
-7e5cf0997b178f94ae41a28eda18e3c2 *R/hte_plot.R
+21b3d6cd61f7c5b2f3dda777d2d58fe7 *R/hte_plot.R
 26c28f2686b6da776d993895401602fb *R/hte_plot_line.R
 7918af8bf72a0d31ca26c39b49c46f54 *R/importance.R
 8fed1ff6fbef29da6f8df409ac8de996 *R/makeplots.R
@@ -35,7 +35,7 @@ e7a5c2610762829bf98250baa44b2574 *R/model.frame.causalTree.R
 6c9a6af628003bd2d67bc42660d43767 *R/plotOutcomes.R
 9ce02ade0150fb6838849e80ea573cb0 *R/runDynamic.R
 d0a9848c952be60d75f806ba9dca6d66 *R/saveBCSS.R
-b0fdfa9fa64fd7c18763679fe2c20551 *R/saveFiles.R
+0d0036f863ddf3cf7541e30d40da0859 *R/saveFiles.R
 dba2e72fdecc8cc3f9ac36fd558c94d3 *R/saveGCSS.R
 298544ccfc4d2c60e0781ffcb9285fc2 *R/saveInd.R
 4f2dc13b18e5c6f45320149bcbbeabaa *R/saveServ.R
@@ -136,4 +136,4 @@ d84036f59dbd532df1bdd0031c96b465 *src/user.c
 9131b3b4ec14f4ba8fb593b5bc84494d *src/usersplit.c
 db02dbf019f71bb12369635ce1cc967e *src/xevals.c
 49b6bf91046e882887963aab6acee894 *src/xvalHelper.c
-10b6dfc05f8d2cea8e388ba3e7582769 *tests/test_simulated_tree.R
+7ec0dee65e78511d43d5675dfb327091 *tests/test_simulated_tree.R

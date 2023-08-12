@@ -67,21 +67,23 @@ hte_plot <- function(model,data,treatment_indicator = NULL,
   layout.matrix <- apply(layout.matrix,2,function(ccol){
     list(ccol,ccol)
   })
+
   layout.matrix <- matrix(unlist(layout.matrix),nrow = opfit_tree$height)
   layout.matrix[is.na(layout.matrix)] <- 0
 
-  # for each node, keep the space for the central ones
+  # for each node, keep the space for the central ones by expanding the layout matrix
   lapply(1:(nrow(opfit$frame)),function(i){
     loc <- which(layout.matrix==i,arr.ind = T)
     loc_i <- loc[c(nrow(loc)%/%2, (nrow(loc)%/%2+1)),]
-    layout.matrix[loc_i] <- i
+    layout.matrix[loc_i] <<- i
     loc_0 <- loc[-c(nrow(loc)%/%2, (nrow(loc)%/%2+1)),]
-    layout.matrix[loc_0] <- 0
+    layout.matrix[loc_0] <<- 0
   })
 
   # set up the spaces for arrows from each node
   arr <- data.tree::ToDataFrameNetwork(opfit_tree) #arr means arrow
   k <- 2*nrow(opfit$frame)
+
   lapply(sort(as.numeric(unique(arr$from))),function(i){
     i <- as.numeric(i)
     loc_start <- which(layout.matrix==i,arr.ind = T)
@@ -89,14 +91,15 @@ hte_plot <- function(model,data,treatment_indicator = NULL,
     loc_end <- lapply(end_point,function(x){
       which(layout.matrix==as.numeric(x),arr.ind = T)})
 
-    k <- k+1
+    k <<- k+1
     layout.matrix[unique(loc_start[,1]),
                   c( min(loc_end[[1]][,2]):(min(loc_start[,2])-1)
-                  )] <- k
-    k <- k+1
+                  )] <<- k
+
+    k <<- k+1
     layout.matrix[unique(loc_start[,1]),
-                  c( max(loc_end[[2]][,2]):(max(loc_start[,2])+1)
-                  )] <- k
+                  c( max(loc_end[[2]][,2]):( max(loc_start[,2])+1 )
+                  )] <<- k
   })
 
   layout.matrix.interm <- layout.matrix
@@ -111,6 +114,7 @@ hte_plot <- function(model,data,treatment_indicator = NULL,
   layout.matrix <- rbind(max(layout.matrix)+1,
                          layout.matrix,
                          max(layout.matrix)+2)
+
   # get node labels :::::::::::::::::::::::::::::::
   nn_name <- 0
   opfit_tree$Do(function(node){
@@ -133,7 +137,7 @@ hte_plot <- function(model,data,treatment_indicator = NULL,
   nn_name <- 0
   opfit_tree$Do(function(node){
     opfit$frame$var[which(opfit$frame$var=="<leaf>")] <- NA
-    nn_name <- 1 + nn_name
+    nn_name <<- 1 + nn_name
     node$splitname <- opfit$frame$var[nn_name]
   }
   )
@@ -169,10 +173,10 @@ hte_plot <- function(model,data,treatment_indicator = NULL,
   # add split rule ::::::::::::::::::::::::::::::
   split_rule <- list()
   opfit_tree$Do(function(node){
-    split_rule[[length(split_rule)+1]]<-paste(node$splitname,node$splitlevels)
+    split_rule[[length(split_rule)+1]]<<-paste(node$splitname,node$splitlevels)
   })
-  split_rule <- matrix(unlist(split_rule)[-stringr::str_which(unlist(split_rule),"NA")],byrow = T,ncol = 2)
 
+  split_rule <- matrix(unlist(split_rule)[-stringr::str_which(unlist(split_rule),"NA")],byrow = T,ncol = 2)
   # makeplot()
   # plot.new()
   layout(mat = layout.matrix,
@@ -182,7 +186,7 @@ hte_plot <- function(model,data,treatment_indicator = NULL,
 
   i <- 0
   opfit_tree$Do(function(node){
-    i <- i+1
+    i <<- i+1
     par(mar = c(1,1,1,1))
     # node <- opfit_tree
     # use function hist to generate histogram in each group ------
@@ -220,9 +224,10 @@ hte_plot <- function(model,data,treatment_indicator = NULL,
           font = 3,line = 0.5)
   })
 
+
   i <- 0
   opfit_tree$Do(function(node){
-    i <- i+1
+    i <<- i+1
     par(mar = c(1,1,1,1))
     # node <- opfit_tree
     # use function hist to generate histogram in each group ------
@@ -262,16 +267,16 @@ hte_plot <- function(model,data,treatment_indicator = NULL,
     #       font = 0.2,line = 0.5)
   })
 
-  lapply( 1:((max(layout.matrix)-2-2*nrow(opfit$frame))%/%2),function(k){
+  lapply( 1:((max(layout.matrix)-2-2*nrow(opfit$frame))%/%2),function(xl){
     plot.new()
     segments(0,0,0,0.4)
     segments(0,0.4,1,0.4)
-    text(0.5,0.5,split_rule[k,1],cex = 0.85)
+    text(0.5,0.5,split_rule[xl,1],cex = 0.85)
 
     plot.new()
     segments(0,0.4,1,0.4)
     segments(1,0.4,1,0)
-    text(0.5,0.5,split_rule[k,2],cex = 0.85)
+    text(0.5,0.5,split_rule[xl,2],cex = 0.85)
   } )
   plot.new()
   text(.5,.5,plot.title,font=2,cex=1)
