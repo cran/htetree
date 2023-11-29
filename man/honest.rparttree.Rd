@@ -95,7 +95,7 @@ specified in the call to \code{causalTree}.  They are checked against the
 list of valid arguments.  An example of a commonly set parameter would
 be \code{xval}, which sets the number of cross-validation samples.
 The parameter \code{minsize} is implemented differently in
-\code{causalTree} than in {rpart}; we require a minimum of \code{minsize}
+\code{causalTree} than in \code{rpart}; we require a minimum of \code{minsize}
 treated observations and a minimum of \code{minsize} control
 observations in each leaf.}
 }

@@ -282,7 +282,8 @@ causalTree(SEXP ncat2, SEXP split_Rule2, SEXP bucketnum2, SEXP bucketMax2, SEXP 
 
 
     if (i > 0)
-        error(errmsg);
+        // error(errmsg);
+        error(_("unknown error"));
 
 
     nodesize = sizeof(Node) + (ct.num_resp - 20) * sizeof(double);

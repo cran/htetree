@@ -1,9 +1,9 @@
-1a66a42c2ec2378f5826dc906b31723e *DESCRIPTION
+5844469ecbe077d0ffa10b6181cbadb9 *DESCRIPTION
 c266085e68d129dbbb01f1cca2ee739b *NAMESPACE
 c64cfcd8057038207802a1964ab182f5 *R/bundScript.R
-36fcfc0e84e6d3ea5def929d0ae41e82 *R/causalForest.R
+eedfc0c8728f6745b9df247c925e50de *R/causalForest.R
 f68525b4160f5a05e8bbc5b9c8a484e0 *R/causalTee.control.R
-8e3e638a3f3f5236781bfd2098c65019 *R/causalTree.R
+7e8c67b161219e36799ae11483fb2e12 *R/causalTree.R
 9b338a8f78880eb4feab9623309e09af *R/causalTree.anova.R
 10c0f2df5e6afdb339033cf38ca4cc09 *R/causalTree.branch.R
 4c2426b035fbed3aa70f310a975a0105 *R/causalTree.matrix.R
@@ -42,10 +42,10 @@ dba2e72fdecc8cc3f9ac36fd558c94d3 *R/saveGCSS.R
 2b983fa96df20f5b0f2c9f399c6320bb *R/saveUI.R
 6ba90ae72ce299c1ca50474092524663 *data/simulation.1.rda
 731564463161da2f6255ea1a21a5693c *man/bundScript.Rd
-b406e438f9c05bc4e0870862422b4bb6 *man/causalForest.Rd
-e3f3d84d90f4c1f1a41cc7a91ff93710 *man/causalTree.Rd
+9fd20451925ae9bd35655d02f4844d5e *man/causalForest.Rd
+25d0a081fd1edb3bccb0620404954f20 *man/causalTree.Rd
 6a1f7f81a35d836b1f13d204825d231b *man/causalTree.branch.Rd
-eab44ef9e570892ab7cd8db0e22b1884 *man/causalTree.control.Rd
+608f71a7e2f90b6aa9983972daabfb52 *man/causalTree.control.Rd
 827c7743d459c3787a50ed7ba7653748 *man/causalTree.matrix.Rd
 223ba3b08ae4d1616d66528071810fa8 *man/causalTreecallback.Rd
 9bc91dbec114a28aa68c07e6f3168e8c *man/causalTreeco.Rd
@@ -55,10 +55,10 @@ add196f3b7ae3bf606461c03cbc1b152 *man/estimate.causalTree.Rd
 5a658c3182d78f260315646c28cc033c *man/formatg.Rd
 3f79d76c909a9e1d480a07e14f110906 *man/getDefaultPath.Rd
 6784647676c41a591e67428dbd3096c1 *man/getDensities.Rd
-0e2344b735acc5a9159fa550345c0622 *man/honest.causalTree.Rd
+65df0c6e88a937f7e9ead6d327ac5101 *man/honest.causalTree.Rd
 06ee9b98c6c23eff6dcd50ef74d45e98 *man/honest.est.causalTree.Rd
 7ab0e730023a3c24d98da9b5062b74c0 *man/honest.est.rparttree.Rd
-229416b30a439f3fb75def00dd591dce *man/honest.rparttree.Rd
+e5d7e238d05ed79d045c77b921619212 *man/honest.rparttree.Rd
 7557be19a6133977c6f3356d20246ecf *man/hte_causalTree.Rd
 a57766be8d53fea9611c13a69d2ad082 *man/hte_forest.Rd
 22e43984ab23f9cba20d9b752cf49519 *man/hte_ipw.Rd
@@ -69,7 +69,7 @@ ec38c052e0b6c69ac52be25b7d5124e6 *man/htetree.anova.Rd
 f69fdd7e956cb81378630aa92a039f69 *man/importance.Rd
 b01a1e7b78f6cc11b65ccfa0d233c905 *man/makeplots.Rd
 0acb841f69d3957555361e09e191dc18 *man/matchinleaves.Rd
-95012015d71f2763cbd77ef909ee6062 *man/model.frame.causalTree.Rd
+81e5cc96c90b09b3b7d4dde294c6b5bd *man/model.frame.causalTree.Rd
 8001a1a8ed2b37f30fb5268876b2a9e0 *man/na.causalTree.Rd
 1b4232eac2ff481e051a497aa88246e3 *man/plotOutcomes.Rd
 8cbd6c0605330ec347db3445272e8b76 *man/runDynamic.Rd
@@ -88,7 +88,7 @@ fb07196f1698bfe184ae50017c243a77 *man/simulation.1.Rd
 f983e0527ea1f37c4e87c0755bbebd78 *src/anovapred.c
 b8186726be3192bdd07021e502535720 *src/branch.c
 1ee4c54bed65ddeda6fd923c4d8d4efc *src/bsplit.c
-740959da9f75786e5598f92c278371fa *src/causalTree.c
+0587af408d5bf6c903ea57041e801e4b *src/causalTree.c
 9a4b32ba63e69b17792e008cdcad54b0 *src/causalTree.h
 343294e2db949dc1753e5d24f1848f17 *src/causalTree_callback.c
 7ae57c2c5fcedada99f3d88c78fee8da *src/causalTreeproto.h

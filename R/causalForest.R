@@ -127,7 +127,7 @@
 #' checked against the
 #' list of valid arguments.
 #' The parameter \code{minsize} is implemented differently in
-#' \code{causalTree} than in {rpart}; we require a minimum of \code{minsize}
+#' \code{causalTree} than in \code{rpart}; we require a minimum of \code{minsize}
 #' treated observations and a minimum of \code{minsize} control
 #' observations in each leaf.
 #'
