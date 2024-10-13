@@ -21,7 +21,7 @@
 #' re-estimated tree.
 #' @param model model frame of \code{causalTree}, same as \code{rpart}
 #'
-#' @returns An object of class \code{rpart}.  See \code{\link{rpart.object}}.
+#' @returns An object of class \code{rpart}.  See \code{rpart.object}.
 #'
 #' @references
 #' Breiman L., Friedman J. H., Olshen R. A., and Stone, C. J. (1984)
@@ -33,8 +33,8 @@
 #'
 #' @seealso
 #' \code{\link{causalTree}},
-#' \code{\link{estimate.causalTree}}, \code{\link{rpart.object}},
-#' \code{\link{summary.rpart}}, \code{\link{rpart.plot}}
+#' \code{\link{estimate.causalTree}}, \code{rpart.object},
+#' \code{summary.rpart}, \code{rpart.plot}
 #'
 #' @examples
 #' library("rpart")

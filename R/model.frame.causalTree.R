@@ -1,6 +1,6 @@
 #' Intermediate function for \code{causalTree}
 #'
-#' get model frame of causalTree, same as \link{rpart}
+#' get model frame of causalTree, same as rpart
 #'
 #' @param formula a \link{formula}, with a response but no interaction terms.
 #' If this is a data frame, it is taken as the model frame (see

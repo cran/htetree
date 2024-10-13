@@ -82,7 +82,7 @@ missing and \code{model} is supplied this defaults to \code{FALSE}.}
     \code{gini}.}
 
 \item{control}{a list of options that control details of the
-\code{rpart} algorithm.  See \code{\link{rpart.control}}.}
+\code{rpart} algorithm.  See \code{rpart.control}.}
 
 \item{cost}{a vector of non-negative costs, one for each variable in
 the model. Defaults to one for all variables. These are scalings to
@@ -90,7 +90,7 @@ be applied when considering splits, so the improvement on splitting
 on a variable is divided by its cost in deciding which split to
 choose.}
 
-\item{...}{arguments to \code{\link{rpart.control}} may also be
+\item{...}{arguments to \code{rpart.control} may also be
 specified in the call to \code{causalTree}.  They are checked against the
 list of valid arguments.  An example of a commonly set parameter would
 be \code{xval}, which sets the number of cross-validation samples.

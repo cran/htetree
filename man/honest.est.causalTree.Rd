@@ -18,7 +18,7 @@ honest.est.causalTree(fit, x, wt, treatment, y)
 \item{y}{outcome variable}
 }
 \value{
-An object of class \code{rpart}.  See \code{\link{rpart.object}}.
+An object of class \code{rpart}.  See \code{rpart.object}.
 }
 \description{
 honest re-estimation and change the frame of object using estimation sample

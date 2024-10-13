@@ -133,7 +133,7 @@ In this implementation, the propensity score is a constant for the whole
 the user may use inverse propensity scores as case weights if desired.}
 
 \item{control}{a list of options that control details of the
-\code{rpart} algorithm.  See \code{\link{rpart.control}}.}
+\code{rpart} algorithm.  See \code{rpart.control}.}
 
 \item{split.alpha}{scale parameter between 0 and 1, used in splitting
 risk evaluation function for \code{"CT"}. When \code{split.Honest = FALSE},
@@ -154,7 +154,7 @@ be applied when considering splits, so the improvement on splitting
 on a variable is divided by its cost in deciding which split to
 choose.}
 
-\item{\dots}{arguments to \code{\link{rpart.control}} may also be
+\item{\dots}{arguments to \code{rpart.control} may also be
 specified in the call to \code{causalTree}.  They are checked against the
 list of valid arguments.  An example of a commonly set parameter would
 be \code{xval}, which sets the number of cross-validation samples.
@@ -164,7 +164,7 @@ treated observations and a minimum of \code{minsize} control
 observations in each leaf.}
 }
 \value{
-An object of class \code{rpart}.  See \code{\link{rpart.object}}.
+An object of class \code{rpart}.  See \code{rpart.object}.
 }
 \description{
 Fit a \code{causalTree} model to get an \code{rpart} object
@@ -217,6 +217,6 @@ Causal Effects}.  http://arxiv.org/abs/1504.01132
 }
 \seealso{
 \code{\link{honest.causalTree}},
-\code{\link{rpart.control}}, \code{\link{rpart.object}},
-\code{\link{summary.rpart}}, \code{\link{rpart.plot}}
+\code{rpart.control}, \code{rpart.object},
+\code{summary.rpart}, \code{rpart.plot}
 }

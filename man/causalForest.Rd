@@ -81,7 +81,7 @@ each observations. Otherwise, return the average effect.}
 
 \item{type}{the type of returned object}
 
-\item{\dots}{arguments to \code{\link{rpart.control}} may also be
+\item{\dots}{arguments to \code{rpart.control} may also be
 specified in the call to \code{causalForest}.  They are
 checked against the
 list of valid arguments.
@@ -155,7 +155,7 @@ In this implementation, the propensity score is a constant for the whole
 the user may use inverse propensity scores as case weights if desired.}
 
 \item{control}{a list of options that control details of the
-\code{rpart} algorithm.  See \code{\link{rpart.control}}.}
+\code{rpart} algorithm.  See \code{rpart.control}.}
 
 \item{split.alpha}{scale parameter between 0 and 1, used in splitting
 risk evaluation function for \code{"CT"}. When \code{split.Honest = FALSE},
@@ -185,7 +185,7 @@ control cases in one leaf node}
 \item{ncolx}{Total number of covariates}
 }
 \value{
-An object of class \code{rpart}.  See \code{\link{rpart.object}}.
+An object of class \code{rpart}.  See \code{rpart.object}.
 }
 \description{
 Build a random causal forest by fitting a user selected number of
@@ -242,6 +242,6 @@ http://arxiv.org/abs/1510.04342
 \seealso{
 \code{\link{causalTree}}
 \code{\link{honest.causalTree}},
-\code{\link{rpart.control}}, \code{\link{rpart.object}},
-\code{\link{summary.rpart}}, \code{\link{rpart.plot}}
+\code{rpart.control}, \code{rpart.object},
+\code{summary.rpart}, \code{rpart.plot}
 }

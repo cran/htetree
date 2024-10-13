@@ -36,7 +36,7 @@ causalTree.control(
 
 \item{maxdepth}{Maximum depth}
 
-\item{...}{arguments to \code{\link{rpart.control}} may also be
+\item{...}{arguments to \code{rpart.control} may also be
 specified in the call to \code{causalTree}.  They are checked against the
 list of valid arguments.  An example of a commonly set parameter would
 be \code{xval}, which sets the number of cross-validation samples.

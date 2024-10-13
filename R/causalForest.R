@@ -82,7 +82,7 @@
 #' the user may use inverse propensity scores as case weights if desired.
 #'
 #' @param control a list of options that control details of the
-#'   \code{rpart} algorithm.  See \code{\link{rpart.control}}.
+#'   \code{rpart} algorithm.  See \code{rpart.control}.
 #'
 #' @param split.alpha scale parameter between 0 and 1, used in splitting
 #' risk evaluation function for \code{"CT"}. When \code{split.Honest = FALSE},
@@ -122,7 +122,7 @@
 #' @param ncov_sample Number of covariates randomly sampled to
 #' build each tree in the forest
 #'
-#' @param \dots arguments to \code{\link{rpart.control}} may also be
+#' @param \dots arguments to \code{rpart.control} may also be
 #' specified in the call to \code{causalForest}.  They are
 #' checked against the
 #' list of valid arguments.
@@ -150,7 +150,7 @@
 #' Inference of Heterogeneous Treatment Effects using Random Forests
 #' } for more details.
 #'
-#' @returns An object of class \code{rpart}.  See \code{\link{rpart.object}}.
+#' @returns An object of class \code{rpart}.  See \code{rpart.object}.
 #' @references
 #' Breiman L., Friedman J. H., Olshen R. A., and Stone, C. J. (1984)
 #' \emph{Classification and Regression Trees.}
@@ -166,8 +166,8 @@
 #' @seealso
 #' \code{\link{causalTree}}
 #' \code{\link{honest.causalTree}},
-#' \code{\link{rpart.control}}, \code{\link{rpart.object}},
-#' \code{\link{summary.rpart}}, \code{\link{rpart.plot}}
+#' \code{rpart.control}, \code{rpart.object},
+#' \code{summary.rpart}, \code{rpart.plot}
 #'
 #' @examples
 #' library(rpart)

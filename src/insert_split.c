@@ -31,7 +31,8 @@ insert_split(pSplit *listhead, int ncat, double improve, int max)
 	if (improve <= s3->improve)
 	    return NULL;
 	if (ncat > 1) {
-	    Free(s3);
+	    // Free(s3);
+		free(s3);
 	    s3 = (pSplit) CALLOC(1, splitsize);
 	    s3->nextsplit = NULL;
 	    *listhead = s3;
@@ -58,8 +59,9 @@ insert_split(pSplit *listhead, int ncat, double improve, int max)
 	    return NULL;        /* not good enough */
 	if (ncat > 1) {
 	   // FIXME: use Realloc
-	    Free(s4);           /* get new memory -- this chunk may be too
-				 * small */
+	    // Free(s4);           /* get new memory -- this chunk may be too
+			//	 * small */
+		 free(s4);
 	    s4 = (pSplit) CALLOC(1, splitsize);
 	}
 	if (s1 == s3)

@@ -6,7 +6,7 @@
 #' @param wt optional weights
 #' @param treatment treatment variable
 #' @param y outcome variable
-#' @returns An object of class \code{rpart}.  See \code{\link{rpart.object}}.
+#' @returns An object of class \code{rpart}.  See \code{rpart.object}.
 #'
 honest.est.causalTree <- function(fit, x, wt, treatment, y)
 {

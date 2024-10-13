@@ -248,6 +248,6 @@ myxval(int n_xval, CpTable cptable_head, int *x_grp, int maxcat, char **errmsg,
     ct.alpha = alphasave;
     for (i = 0; i < ct.n; i++)
         ct.which[i] = savew[i];
-    Free(savew);
-    Free(xtemp);
+    free(savew);
+    free(xtemp);
 }
