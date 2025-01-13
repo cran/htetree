@@ -36,37 +36,6 @@
 #' \code{\link{estimate.causalTree}}, \code{rpart.object},
 #' \code{summary.rpart}, \code{rpart.plot}
 #'
-#' @examples
-#' library("rpart")
-#' library("rpart.plot")
-#' library("htetree")
-#' n <- nrow(simulation.1)
-#'
-#' trIdx <- which(simulation.1$treatment == 1)
-#'
-#' conIdx <- which(simulation.1$treatment == 0)
-#'
-#' train_idx <- c(sample(trIdx, length(trIdx) / 2), sample(conIdx,
-#'     length(conIdx) / 2))
-#'
-#' train_data <- simulation.1[train_idx, ]
-#'
-#' est_data <- simulation.1[-train_idx, ]
-#'
-#' honestTree <- honest.causalTree(y ~ x1 + x2 + x3 + x4, data = train_data,
-#'      treatment = train_data$treatment,
-#'      est_data = est_data,
-#'      est_treatment = est_data$treatment,
-#'      split.Rule = "CT", split.Honest = TRUE,
-#'      HonestSampleSize = nrow(est_data),
-#'      split.Bucket = TRUE, cv.option = "CT")
-#'
-#' opcp <-  honestTree$cptable[,1][which.min(honestTree$cptable[,4])]
-#'
-#' opTree <- prune(honestTree, opcp)
-#'
-#' rpart.plot(opTree)
-
 
 honest.causalTree <- function(formula, data, weights, treatment, subset,
 							  est_data, est_weights, est_treatment, est_subset,

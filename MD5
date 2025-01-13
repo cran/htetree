@@ -1,9 +1,9 @@
-15d7aca9503411d074b1c7224ed15a87 *DESCRIPTION
+89e47754880edeeb65dedd21c5d54f52 *DESCRIPTION
 a8afd6f4a3b1edf94c13b921e3fd6f92 *NAMESPACE
 c64cfcd8057038207802a1964ab182f5 *R/bundScript.R
-835c966dc6dd5c1fcf083a13f48e1054 *R/causalForest.R
+13394e65b74e3154772cd06e16cabe1a *R/causalForest.R
 f68525b4160f5a05e8bbc5b9c8a484e0 *R/causalTee.control.R
-96205b1cb5d6366809bf9611dca76b7c *R/causalTree.R
+e6a6362f60d2fbfdbe0b18460cf31825 *R/causalTree.R
 9b338a8f78880eb4feab9623309e09af *R/causalTree.anova.R
 10c0f2df5e6afdb339033cf38ca4cc09 *R/causalTree.branch.R
 4c2426b035fbed3aa70f310a975a0105 *R/causalTree.matrix.R
@@ -17,7 +17,7 @@ a0ab3cc5598873c28f417532856162e9 *R/formatg.R
 bcce8b91e1d65b0553815edb7e69b56e *R/getDefaultPath.R
 f2d30798b3203e7a204cef7cb3fb6477 *R/getDensities.R
 c9d72f656d43f321f64d9eeb0b4db46f *R/globals.R
-f0505b5aafbd124ad62713b2cf3a687d *R/honest.causalTree.R
+0e2516f245d51245cb1a8a584826a303 *R/honest.causalTree.R
 6789cefe56552967a281bbe89a7e1608 *R/honest.est.causalTree.R
 d2bc966139f2544ef25bf47e11ce8471 *R/honest.est.rparttree.R
 99f3aaa23fa0d7a5d65b8abf804d9433 *R/honest.rparttree.R
@@ -29,7 +29,7 @@ fc9e1b3476945f7428c2d7b4d99b70e0 *R/hte_causalTree.R
 26c28f2686b6da776d993895401602fb *R/hte_plot_line.R
 7918af8bf72a0d31ca26c39b49c46f54 *R/importance.R
 8fed1ff6fbef29da6f8df409ac8de996 *R/makeplots.R
-53e2c515dbbd8c8d9ef774cf81e2da95 *R/matchinleaves.R
+655cfe6133668152fb39f37e534f6252 *R/matchinleaves.R
 3963b5c05b05c52d66480be74517f153 *R/model.frame.causalTree.R
 66007c1e33267f0210a6b836522c7387 *R/na.causalTree.R
 6c9a6af628003bd2d67bc42660d43767 *R/plotOutcomes.R
@@ -42,8 +42,8 @@ dba2e72fdecc8cc3f9ac36fd558c94d3 *R/saveGCSS.R
 2b983fa96df20f5b0f2c9f399c6320bb *R/saveUI.R
 6ba90ae72ce299c1ca50474092524663 *data/simulation.1.rda
 731564463161da2f6255ea1a21a5693c *man/bundScript.Rd
-1f4d6dbda9bf53936f2a9f53299d7d91 *man/causalForest.Rd
-5a296e233115845d18a28ca7543aa876 *man/causalTree.Rd
+588950548228e0943ef003efea25fb81 *man/causalForest.Rd
+45931e444afa850da581ff84cbf62c9a *man/causalTree.Rd
 6a1f7f81a35d836b1f13d204825d231b *man/causalTree.branch.Rd
 3b52f91e8f8e63c96fb0256f4cd18140 *man/causalTree.control.Rd
 827c7743d459c3787a50ed7ba7653748 *man/causalTree.matrix.Rd
@@ -55,7 +55,7 @@ add196f3b7ae3bf606461c03cbc1b152 *man/estimate.causalTree.Rd
 5a658c3182d78f260315646c28cc033c *man/formatg.Rd
 3f79d76c909a9e1d480a07e14f110906 *man/getDefaultPath.Rd
 6784647676c41a591e67428dbd3096c1 *man/getDensities.Rd
-812ecc42744487781d8bba019d4cb402 *man/honest.causalTree.Rd
+8b6dc60074fc8ebc0362c6a175a98f7b *man/honest.causalTree.Rd
 5876f5b8bfc8eff27c2829e51e93c0dc *man/honest.est.causalTree.Rd
 7ab0e730023a3c24d98da9b5062b74c0 *man/honest.est.rparttree.Rd
 8594583bfd89a8309dfa25ca5baadf69 *man/honest.rparttree.Rd

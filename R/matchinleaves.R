@@ -105,7 +105,7 @@ matchinleaves <- function(trainset=match_data,
     hte_effect_help <- data.match[which(!is.na(data.match$match)),
                                   c(treatment_indicator,outcomevariable,'match')]
 
-    hte_effect_help <- dplyr::group_by(.data = hte_effect_help,.dots = c('match',treatment_indicator))
+    hte_effect_help <- dplyr::group_by(.data = hte_effect_help, dplyr::across(dplyr::all_of(c('match',treatment_indicator))))
 
 
     hte_effect_help <- dplyr::summarise(.data = hte_effect_help, groupMean = mean(hte_effect_help[[outcomevariable]], na.rm = TRUE))

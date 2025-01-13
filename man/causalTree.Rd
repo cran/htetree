@@ -191,21 +191,6 @@ opfit <- prune(tree, opcp)
 
 rpart.plot(opfit)
 
-fittree <- causalTree(y~ x1 + x2 + x3 + x4, data = simulation.1,
-                      treatment = simulation.1$treatment,
-                      split.Rule = "fit", cv.option = "fit",
-                      split.Honest = TRUE, cv.Honest = TRUE, split.Bucket = TRUE,
-                      bucketNum = 5,
-                      bucketMax = 200, xval = 10,
-                      cp = 0, minsize = 20, propensity = 0.5)
-
-tstatstree <- causalTree(y~ x1 + x2 + x3 + x4, data = simulation.1,
-                         treatment = simulation.1$treatment,
-                         split.Rule = "tstats", cv.option = "CT",
-                         cv.Honest = TRUE, split.Bucket = TRUE,
-                         bucketNum = 10,
-                         bucketMax = 200, xval = 5,
-                         cp = 0, minsize = 20, propensity = 0.5)
 }
 \references{
 Breiman L., Friedman J. H., Olshen R. A., and Stone, C. J. (1984)

@@ -169,23 +169,6 @@
 #' \code{rpart.control}, \code{rpart.object},
 #' \code{summary.rpart}, \code{rpart.plot}
 #'
-#' @examples
-#' library(rpart)
-#' library("htetree")
-#' cf <- causalForest(y~x1+x2+x3+x4+x5+x6+x7+x8+x9+x10, data=simulation.1,
-#'   treatment=simulation.1$treatment,
-#'   split.Rule="CT", split.Honest=TRUE,
-#'   split.Bucket=FALSE, bucketNum = 5,
-#'   bucketMax = 100, cv.option="CT", cv.Honest=TRUE, minsize = 2L,
-#'   split.alpha = 0.5, cv.alpha = 0.5,
-#'   sample.size.total = floor(nrow(simulation.1) / 2),
-#'   sample.size.train.frac = .5,
-#'   mtry = ceiling(ncol(simulation.1)/3), nodesize = 3, num.trees= 5,
-#'   ncolx=10,ncov_sample=3)
-#'
-#' cfpredtest <- predict.causalForest(cf, newdata=simulation.1[1:100,],
-#'   type="vector")
-
 #' @rdname causalForest
 #' @export
 #' @aliases init.causalForest

@@ -193,37 +193,6 @@ with tree structure built on training sample (including cross-validation)
 and leaf estimates taken from estimation sample.
 Return an \code{rpart} object.
 }
-\examples{
-library("rpart")
-library("rpart.plot")
-library("htetree")
-n <- nrow(simulation.1)
-
-trIdx <- which(simulation.1$treatment == 1)
-
-conIdx <- which(simulation.1$treatment == 0)
-
-train_idx <- c(sample(trIdx, length(trIdx) / 2), sample(conIdx,
-    length(conIdx) / 2))
-
-train_data <- simulation.1[train_idx, ]
-
-est_data <- simulation.1[-train_idx, ]
-
-honestTree <- honest.causalTree(y ~ x1 + x2 + x3 + x4, data = train_data,
-     treatment = train_data$treatment,
-     est_data = est_data,
-     est_treatment = est_data$treatment,
-     split.Rule = "CT", split.Honest = TRUE,
-     HonestSampleSize = nrow(est_data),
-     split.Bucket = TRUE, cv.option = "CT")
-
-opcp <-  honestTree$cptable[,1][which.min(honestTree$cptable[,4])]
-
-opTree <- prune(honestTree, opcp)
-
-rpart.plot(opTree)
-}
 \references{
 Breiman L., Friedman J. H., Olshen R. A., and Stone, C. J. (1984)
 \emph{Classification and Regression Trees.}
